@@ -5,6 +5,7 @@ import { Character, Instrumental, supabase } from '../lib/supabase';
 import { generateRapVerse } from '../lib/groq';
 import { generateSpeech } from '../lib/elevenlabs';
 import { BPMOrchestrator } from '../lib/bpm-orchestrator';
+import { BattleResults } from './BattleResults';
 import toast from 'react-hot-toast';
 
 interface BattleArenaProps {
@@ -26,6 +27,8 @@ interface BattleState {
   isGenerating: boolean;
   battleId?: string;
   winner?: Character;
+  showResults: boolean;
+  battleComplete: boolean;
 }
 
 export const BattleArena: React.FC<BattleArenaProps> = ({
@@ -164,7 +167,7 @@ export const BattleArena: React.FC<BattleArenaProps> = ({
     // Start instrumental background music
     startInstrumentalLoop();
 
-    setBattleState(prev => ({ ...prev, isPlaying: true, currentVerse: 0 }));
+    setBattleState(prev => ({ ...prev, isPlaying: true, currentVerse: 0, battleComplete: false,  }));
 
     for (let i = 0; i < battleState.verses.length; i++) {
       const verse = battleState.verses[i];
@@ -219,8 +222,22 @@ export const BattleArena: React.FC<BattleArenaProps> = ({
     setBattleState(prev => ({
       ...prev,
       showResults: false,
-      battle
-    }))
+      battleComplete: false,
+      currentVerse: -1,
+      isPlaying: false
+    }));
+  };
+
+  const handleNewBattle = () => {
+    setBattleState({
+      verses: [],
+      currentVerse: -1,
+      isPlaying: false,
+      isGenerating: false,
+      showResults: false,
+      battleComplete: false
+    });
+    onBack();
   }
 
   const pauseBattle = () => {
@@ -273,9 +290,24 @@ export const BattleArena: React.FC<BattleArenaProps> = ({
     return battleState.verses[battleState.currentVerse];
   };
 
+  if (battleState.showResults && battleState.battleId && battleState.winner) {
+    return (
+      <BattleResults
+        battleId={battleState.battleId}
+        character1={character1}
+        character2={character2}
+        winner={battleState.winner}
+        instrumental={instrumental}
+        verses={battleState.verses}
+        onNewBattle={handleNewBattle}
+        onReplay={handleReplayBattle}
+      />
+    )
+  }
+
   if (battleState.isGenerating) {
     return (
-      <div className="min-h-screen bg-gray-900 flex items-center justify-center">
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
           <motion.div
             className="w-16 h-16 border-4 border-yellow-400 border-t-transparent rounded-full mx-auto mb-4"
@@ -290,7 +322,7 @@ export const BattleArena: React.FC<BattleArenaProps> = ({
   }
 
   return (
-    <div className="min-h-screen bg-gray-900 relative overflow-hidden">
+    <div className="min-h-screen bg-white relative overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-10 left-10 w-32 h-32 bg-yellow-400 rounded-full blur-3xl" />
@@ -309,10 +341,10 @@ export const BattleArena: React.FC<BattleArenaProps> = ({
             <span>Back to Setup</span>
           </button>
 
-          <div className="text-center">
-            <h1 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-red-600">
-              BATTLE ARENA
-            </h1>
+          <div className="text-center w-full flex items-center justify-center">
+            <div className="flex items-center justify-center w-62">
+            <img src='/logo.png' alt='SUCKERPUNCH' />
+            </div>
             <p className="text-gray-300">{instrumental.name} - {instrumental.bpm} BPM</p>
           </div>
 
