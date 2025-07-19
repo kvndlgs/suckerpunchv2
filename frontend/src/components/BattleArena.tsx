@@ -39,6 +39,8 @@ export const BattleArena: React.FC<BattleArenaProps> = ({
     currentVerse: -1,
     isPlaying: false,
     isGenerating: false,
+    showResults: false,
+    battleComplete: false,
   });
   const [muted, setMuted] = useState(false);
   const [volume, setVolume] = useState(0.7);
@@ -198,8 +200,28 @@ export const BattleArena: React.FC<BattleArenaProps> = ({
     // Stop instrumental
     stopInstrumental();
 
-    setBattleState(prev => ({ ...prev, isPlaying: false, currentVerse: -1 }));
+    setBattleState(prev => ({ 
+      ...prev, 
+      isPlaying: false, 
+      currentVerse: -1,
+      battleComplete: true, 
+    }));
+
+    setTimeout(() => {
+      setBattleState(prev => ({
+        ...prev,
+        showResults: true,
+      }))
+    }, 3000); // 3 seconds delay
   };
+
+  const handleReplayBattle = () => {
+    setBattleState(prev => ({
+      ...prev,
+      showResults: false,
+      battle
+    }))
+  }
 
   const pauseBattle = () => {
     // Pause all audio
