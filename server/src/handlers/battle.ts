@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import { supabase } from '../supabase';
 
-export const getBattleDate = async (req: Request, res: Response) => {
+export const getBattleData = async (req: Request, res: Response) => {
     {
   const { battleId } = req.query;
 

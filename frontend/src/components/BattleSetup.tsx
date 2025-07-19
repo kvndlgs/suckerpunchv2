@@ -153,6 +153,11 @@ export const BattleSetup: React.FC<BattleSetupProps> = ({ onStartBattle }) => {
 
   return (
     <div className="min-h-screen bg-gray-900 p-6">
+            <div className="w-full h-auto sticky flex items-center justify-center">
+                    
+            <img src='/logo.png' alt='SUCKERPUNCH' className="w-[250px] mx-auto py-8" />
+            
+      </div>
       <div className="max-w-6xl mx-auto">
         <motion.div
           className="text-center mb-12"
@@ -160,9 +165,6 @@ export const BattleSetup: React.FC<BattleSetupProps> = ({ onStartBattle }) => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <h1 className="text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-red-600 mb-4">
-            SUCKERPUNCH
-          </h1>
           <p className="text-xl text-gray-300">Choose your fighters and beat to start the battle!</p>
         </motion.div>
 

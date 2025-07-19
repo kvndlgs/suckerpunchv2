@@ -9,6 +9,7 @@ interface CharacterCardProps {
   disabled?: boolean;
 }
 
+
 export const CharacterCard: React.FC<CharacterCardProps> = ({
   character,
   isSelected = false,
@@ -41,7 +42,8 @@ export const CharacterCard: React.FC<CharacterCardProps> = ({
         <div>
           <h3 className="text-xl font-bold text-white mb-2">{character.name}</h3>
           <p className="text-gray-300 text-sm line-clamp-3">
-            {character.personality_prompt.split('.')[0]}...
+            {/* character description */}
+            {character.description}
           </p>
         </div>
         

@@ -323,6 +323,11 @@ export const BattleArena: React.FC<BattleArenaProps> = ({
 
   return (
     <div className="min-h-screen bg-white relative overflow-hidden">
+      <div className="w-full h-auto sticky flex items-center justify-center">
+                    
+            <img src='/logo.png' alt='SUCKERPUNCH' className="w-[250px] mx-auto py-8" />
+            
+      </div>
       {/* Background Effects */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-10 left-10 w-32 h-32 bg-yellow-400 rounded-full blur-3xl" />
@@ -332,6 +337,7 @@ export const BattleArena: React.FC<BattleArenaProps> = ({
 
       {/* Header */}
       <div className="relative z-10 p-6">
+
         <div className="flex items-center justify-between mb-8">
           <button
             onClick={onBack}
@@ -342,9 +348,6 @@ export const BattleArena: React.FC<BattleArenaProps> = ({
           </button>
 
           <div className="text-center w-full flex items-center justify-center">
-            <div className="flex items-center justify-center w-62">
-            <img src='/logo.png' alt='SUCKERPUNCH' />
-            </div>
             <p className="text-gray-300">{instrumental.name} - {instrumental.bpm} BPM</p>
           </div>
 

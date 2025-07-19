@@ -15,7 +15,7 @@ interface AudioMixRequest {
   bpm: number;
 }
 
-export const generateBattleVideo = async (req: Request, res: Response) => {
+export const generateBattleAudio = async (req: Request, res: Response) => {
     if(req.method !== 'POST') {
         return res.status(405).json({ error: 'Method not allowed'});
     };
@@ -114,5 +114,5 @@ async function mixAudioFiles(
       .on('end', resolve)
       .run();
   });
-    
+  }  
 }
