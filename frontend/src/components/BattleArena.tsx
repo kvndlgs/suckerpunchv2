@@ -6,6 +6,7 @@ import { generateRapVerse } from '../lib/groq';
 import { generateSpeech } from '../lib/elevenlabs';
 import { BPMOrchestrator } from '../lib/bpm-orchestrator';
 import { BattleResults } from './BattleResults';
+import { RapQuiz } from './RapQuiz';
 import toast from 'react-hot-toast';
 
 interface BattleArenaProps {
@@ -307,15 +308,9 @@ export const BattleArena: React.FC<BattleArenaProps> = ({
 
   if (battleState.isGenerating) {
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+      <div className="min-h-screen bg-gray-800 flex items-center justify-center">
         <div className="text-center">
-          <motion.div
-            className="w-16 h-16 border-4 border-yellow-400 border-t-transparent rounded-full mx-auto mb-4"
-            animate={{ rotate: 360 }}
-            transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
-          />
-          <h2 className="text-2xl font-bold text-white mb-2">Generating Battle...</h2>
-          <p className="text-gray-300">This may take a moment while we create the perfect rap battle!</p>
+          <RapQuiz />
         </div>
       </div>
     );
@@ -325,7 +320,7 @@ export const BattleArena: React.FC<BattleArenaProps> = ({
     <div className="min-h-screen bg-white relative overflow-hidden">
       <div className="w-full h-auto sticky flex items-center justify-center">
                     
-            <img src='/logo.png' alt='SUCKERPUNCH' className="w-[250px] mx-auto py-8" />
+            <img src='/logo.png' alt='SUCKERPUNCH' className="w-[250px] mx-auto py-4" />
             
       </div>
       {/* Background Effects */}

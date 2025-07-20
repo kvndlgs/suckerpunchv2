@@ -13,6 +13,7 @@ export type Character = {
   id: string;
   name: string;
   personality_prompt: string;
+  description: string;
   voice_id: string;
   avatar_url: string;
   created_at: string;
