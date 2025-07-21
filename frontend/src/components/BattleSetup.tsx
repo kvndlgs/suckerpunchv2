@@ -165,7 +165,7 @@ export const BattleSetup: React.FC<BattleSetupProps> = ({ onStartBattle }) => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <p className="text-xl text-gray-300">Choose your fighters and beat to start the battle!</p>
+          <p className="text-xl text-gray-300">Choose your contenders and instrumentals to start the battle!</p>
         </motion.div>
 
         {/* Character Selection */}
@@ -177,7 +177,7 @@ export const BattleSetup: React.FC<BattleSetupProps> = ({ onStartBattle }) => {
         >
           <h2 className="text-3xl font-bold text-white mb-6 flex items-center">
             <Swords className="w-8 h-8 mr-3 text-yellow-400" />
-            Select Fighters
+            Select Opponents
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {characters.map((character) => (
@@ -233,7 +233,7 @@ export const BattleSetup: React.FC<BattleSetupProps> = ({ onStartBattle }) => {
         >
           <h2 className="text-3xl font-bold text-white mb-6 flex items-center">
             <Volume2 className="w-8 h-8 mr-3 text-purple-400" />
-            Select Beat
+            Select Instrumental
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {instrumentals.map((instrumental) => (
@@ -265,7 +265,7 @@ export const BattleSetup: React.FC<BattleSetupProps> = ({ onStartBattle }) => {
                 : 'bg-gray-600 text-gray-400 cursor-not-allowed'
             }`}
           >
-            {canStartBattle ? 'START BATTLE!' : 'Select fighters and beat to continue'}
+            {canStartBattle ? 'START BATTLE!' : 'Select Contenders and instrumental to continue'}
           </button>
         </motion.div>
       </div>

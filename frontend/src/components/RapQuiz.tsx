@@ -13,10 +13,10 @@ const QUIZ_QUESTIONS = [
   },
   {
     id: 2,
-    question: "What does 'BPM' stand for in music?",
-    options: ["Big Party Music", "Beats Per Minute", "Bass Power Mode", "Beat Production Method"],
-    correct: 1,
-    difficulty: "easy"
+    question: "What is Lil Pump Birthname?",
+    options: ["Liliam Pumpernickle", "Lilan Pumpolopoulos", "Brett Pump", "Gazzy Garcia"],
+    correct: 3,
+    difficulty: "medium"
   },
   {
     id: 3,
@@ -195,10 +195,6 @@ export const RapQuiz: React.FC<RapQuizProps> = ({
       {/* Header */}
       <div className="w-full h-auto flex items-center justify-center">
         <img src="/logo.png" alt="suckerpunch" className="w-[220px]" />
-      </div>
-      <div>
-        <h3> While contenders are getting ready to roast each others into retirement, here's quiz to test your rap knowledge.
-          </h3>
       </div>
       <div className="text-center mb-8">
         <motion.h2 

@@ -35,7 +35,7 @@ Rules:
 - Stay in character
 - Include clever wordplay and insults
 - Reference your opponent
-- Keep it entertaining but not overly offensive
+- Keep it entertaining, highly offensive and personal
 - Make it sound like something your character would actually say`
           },
           {
