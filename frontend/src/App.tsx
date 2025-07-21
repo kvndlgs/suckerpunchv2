@@ -3,6 +3,7 @@ import { Toaster } from 'react-hot-toast';
 import { BattleSetup } from './components/BattleSetup';
 import { BattleArena } from './components/BattleArena';
 import { Character, Instrumental } from './lib/supabase';
+import './app.css';
 
 type AppState = 'setup' | 'battle';
 

@@ -40,7 +40,7 @@ export const InstrumentalCard: React.FC<InstrumentalCardProps> = ({
       <div className="flex items-center justify-between">
         <div className="flex items-center space-x-3">
           <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg flex items-center justify-center">
-            <Music className="w-6 h-6 text-white" />
+            <img src={instrumental.cover_url} alt={instrumental.name} className="w-full object-cover h-full" />
           </div>
           
           <div>

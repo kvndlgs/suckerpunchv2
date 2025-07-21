@@ -21,6 +21,7 @@ export type Character = {
 
 export type Instrumental = {
   id: string;
+  cover_url: string;
   name: string;
   bpm: number;
   audio_url: string;

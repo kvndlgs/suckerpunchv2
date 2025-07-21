@@ -18,7 +18,7 @@ export const CharacterCard: React.FC<CharacterCardProps> = ({
 }) => {
   return (
     <motion.div
-      className={`relative p-6 rounded-xl border-2 cursor-pointer transition-all duration-300 ${
+      className={`relative p-2 rounded-xl border-2 cursor-pointer transition-all duration-300 ${
         isSelected
           ? 'border-yellow-400 bg-yellow-400/10'
           : 'border-gray-600 hover:border-gray-400'
@@ -28,20 +28,20 @@ export const CharacterCard: React.FC<CharacterCardProps> = ({
       whileTap={disabled ? {} : { scale: 0.98 }}
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.3 }}
+      transition={{ type: "spring"}}
     >
-      <div className="text-center space-y-4">
-        <div className="w-20 h-20 mx-auto rounded-full overflow-hidden border-2 border-gray-500">
+      <div className="flex items-center justify-around">
+        <div className="w-16 h-16 mx-auto rounded-full overflow-hidden border-2 border-gray-500">
           <img
             src={character.avatar_url}
             alt={character.name}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover rounded-full"
           />
         </div>
         
         <div>
-          <h3 className="text-xl font-bold text-white mb-2">{character.name}</h3>
-          <p className="text-gray-300 text-sm line-clamp-3">
+          <h3 className="text-xl montserrat-bold text-white mb-2">{character.name}</h3>
+          <p className="text-gray-300 montserrat-regular text-sm line-clamp-3">
             {/* character description */}
             {character.description}
           </p>
