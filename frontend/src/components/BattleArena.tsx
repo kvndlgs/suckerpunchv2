@@ -308,7 +308,7 @@ export const BattleArena: React.FC<BattleArenaProps> = ({
 
   if (battleState.isGenerating) {
     return (
-      <div className="min-h-screen bg-gray-800 flex items-center justify-center">
+      <div className="min-h-screen bg-slate-900 flex items-center justify-center">
         <div className="text-center">
           <RapQuiz />
         </div>
@@ -419,9 +419,11 @@ export const BattleArena: React.FC<BattleArenaProps> = ({
                   alt={character2.name}
                   className="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-yellow-400"
                 />
+                
                 {battleState.winner?.id === character2.id && (
                   <Crown className="absolute -top-2 -right-2 w-8 h-8 text-yellow-400" />
                 )}
+               
               </div>
               <h2 className="text-2xl font-bold text-white">{character2.name}</h2>
             </motion.div>
@@ -505,11 +507,11 @@ export const BattleArena: React.FC<BattleArenaProps> = ({
                       alt={character.name}
                       className="w-8 h-8 rounded-full"
                     />
-                    <span className="text-white font-semibold">
+                    <span className="text-white montserrat-bold">
                       {character.name} - Verse {Math.floor(index / 2) + 1}
                     </span>
                   </div>
-                  <p className="text-gray-300 text-sm line-clamp-3">
+                  <p className="text-gray-300 montserrat-regular text-sm line-clamp-3">
                     {verse.text}
                   </p>
                 </motion.div>

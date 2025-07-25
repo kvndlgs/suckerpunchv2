@@ -146,14 +146,14 @@ export const BattleSetup: React.FC<BattleSetupProps> = ({ onStartBattle }) => {
   if (loading) {
     return (
       <div className="min-h-screen bg-gray-900 flex items-center justify-center">
-        <div className="text-white text-xl">Loading battle arena...</div>
+        <div className="text-white text-xl">Loading stage...</div>
       </div>
     );
   }
 
   return (
     <div className="min-h-screen bg-gray-900 p-6">
-            <div className="w-full h-auto sticky flex items-center justify-center">
+     <div className="w-full h-auto sticky flex items-center justify-center">
                     
             <img src='/logo.png' alt='SUCKERPUNCH' className="w-[250px] mx-auto py-8" />
             
@@ -165,7 +165,7 @@ export const BattleSetup: React.FC<BattleSetupProps> = ({ onStartBattle }) => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <p className="text-xl text-gray-300">Choose your contenders and instrumentals to start the battle!</p>
+          <p className="text-xl text-gray-300">Choose your contenders and instrumental to start the battle!</p>
         </motion.div>
 
         {/* Character Selection */}
@@ -177,7 +177,7 @@ export const BattleSetup: React.FC<BattleSetupProps> = ({ onStartBattle }) => {
         >
           <h2 className="text-3xl font-bold text-white mb-6 flex items-center">
             <Swords className="w-8 h-8 mr-3 text-yellow-400" />
-            Select Opponents
+            Select Characters
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {characters.map((character) => (
@@ -265,7 +265,7 @@ export const BattleSetup: React.FC<BattleSetupProps> = ({ onStartBattle }) => {
                 : 'bg-gray-600 text-gray-400 cursor-not-allowed'
             }`}
           >
-            {canStartBattle ? 'START BATTLE!' : 'Select Contenders and instrumental to continue'}
+            {canStartBattle ? 'START BATTLE!' : 'Select characters and instrumental to continue'}
           </button>
         </motion.div>
       </div>

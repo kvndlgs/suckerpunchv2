@@ -1,0 +1,1 @@
+{"root":["./src/index.ts","./src/supabase.ts","./src/handlers/battle.ts","./src/handlers/generateBattleAudio.ts","./src/handlers/generateBattleVideo.ts"],"errors":true,"version":"5.8.3"}

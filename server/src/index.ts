@@ -1,6 +1,6 @@
-import express = require('express');
-import * as cors from 'cors';
-import * as bodyParser from 'body-parser';
+import express from 'express';
+import cors from 'cors';
+import bodyParser from 'body-parser';
 import { generateBattleAudio } from './handlers/generateBattleAudio';
 import { generateBattleVideo } from './handlers/generateBattleVideo';
 import { getBattleData } from './handlers/battle';

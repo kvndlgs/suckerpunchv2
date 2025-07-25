@@ -18,10 +18,14 @@ export const CharacterCard: React.FC<CharacterCardProps> = ({
 }) => {
   return (
     <motion.div
-      className={`relative p-2 rounded-xl border-2 cursor-pointer transition-all duration-300 ${
+      className={`relative z-50 p-[20px] bg-slate-900 rounded-[10px] cursor-pointer transition-all duration-300 
+        after:content-[''] after:absolute after:w-full after:h-full
+        after:top-1/2 after:left-1/2 after:-translate-x-1/2 after:-translate-y-1/2
+        after:p-[22px] after:rounded-[11px] after:-z-[50] after:border-2 after:border-transparent after:bg-gradient-to-r 
+        after:from-purple-600 after:via-gold-600 via-golden-400 after:to-amber-600 before:filter-[(blured, 1.5)] ${
         isSelected
-          ? 'border-yellow-400 bg-yellow-400/10'
-          : 'border-gray-600 hover:border-gray-400'
+          ? 'after:boder-2 after:border-amber-600'
+          : 'after:border-2 after:border-transparent after:bg-slate-700'
       } ${disabled ? 'opacity-50 cursor-not-allowed' : ''}`}
       onClick={disabled ? undefined : onClick}
       whileHover={disabled ? {} : { scale: 1.05 }}
@@ -30,17 +34,17 @@ export const CharacterCard: React.FC<CharacterCardProps> = ({
       animate={{ opacity: 1, y: 0 }}
       transition={{ type: "spring"}}
     >
-      <div className="flex items-center justify-around">
-        <div className="w-16 h-16 mx-auto rounded-full overflow-hidden border-2 border-gray-500">
+      <div className="flex w-full h-auto items-center justify-start">
+        <div className="w-20 h-20 rounded-full bg-slate-700 overflow-hidden border-2 border-amber-600">
           <img
             src={character.avatar_url}
             alt={character.name}
-            className="w-full h-full object-cover rounded-full"
+            className="w-full h-full object-cover"
           />
         </div>
         
-        <div>
-          <h3 className="text-xl montserrat-bold text-white mb-2">{character.name}</h3>
+        <div className="ml-8">
+          <h3 className="text-xl montserrat-bold text-white">{character.name}</h3>
           <p className="text-gray-300 montserrat-regular text-sm line-clamp-3">
             {/* character description */}
             {character.description}
@@ -49,12 +53,12 @@ export const CharacterCard: React.FC<CharacterCardProps> = ({
         
         {isSelected && (
           <motion.div
-            className="absolute -top-2 -right-2 w-6 h-6 bg-yellow-400 rounded-full flex items-center justify-center"
+            className="absolute -top-2 -right-2 w-6 h-6 bg-amber-400 rounded-full flex items-center justify-center"
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ type: 'spring', stiffness: 300 }}
           >
-            <span className="text-black text-sm font-bold">✓</span>
+            <span className="montserrat-regular text-sm">✓</span>
           </motion.div>
         )}
       </div>
