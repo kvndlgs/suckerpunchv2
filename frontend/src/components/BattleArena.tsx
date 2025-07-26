@@ -317,7 +317,7 @@ export const BattleArena: React.FC<BattleArenaProps> = ({
   }
 
   return (
-    <div className="min-h-screen bg-white relative overflow-hidden">
+    <div className="min-h-screen bg-slate-900 relative overflow-hidden">
       <div className="w-full h-auto sticky flex items-center justify-center">
                     
             <img src='/logo.png' alt='SUCKERPUNCH' className="w-[250px] mx-auto py-4" />
@@ -342,9 +342,6 @@ export const BattleArena: React.FC<BattleArenaProps> = ({
             <span>Back to Setup</span>
           </button>
 
-          <div className="text-center w-full flex items-center justify-center">
-            <p className="text-gray-300">{instrumental.name} - {instrumental.bpm} BPM</p>
-          </div>
 
           <div className="flex items-center space-x-4">
             <button
@@ -378,11 +375,11 @@ export const BattleArena: React.FC<BattleArenaProps> = ({
               animate={{ scale: getCurrentCharacter()?.id === character1.id ? 1.1 : 1 }}
               transition={{ duration: 0.3 }}
             >
-              <div className="relative">
+              <div className="relative max-w-1/3">
                 <img
-                  src={character1.avatar_url}
+                  src={character1.fullsize}
                   alt={character1.name}
-                  className="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-yellow-400"
+                  className="w-1/2 h-auto mx-auto mb-4"
                 />
                 {battleState.winner?.id === character1.id && (
                   <Crown className="absolute -top-2 -right-2 w-8 h-8 text-yellow-400" />
@@ -413,11 +410,11 @@ export const BattleArena: React.FC<BattleArenaProps> = ({
               animate={{ scale: getCurrentCharacter()?.id === character2.id ? 1.1 : 1 }}
               transition={{ duration: 0.3 }}
             >
-              <div className="relative">
+              <div className="relative max-w-1/3">
                 <img
-                  src={character2.avatar_url}
+                  src={character2.fullsize}
                   alt={character2.name}
-                  className="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-yellow-400"
+                  className="w-1/2 h-auto mx-auto mb-4"
                 />
                 
                 {battleState.winner?.id === character2.id && (

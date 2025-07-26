@@ -16,6 +16,7 @@ export type Character = {
   description: string;
   voice_id: string;
   avatar_url: string;
+  fullsize: string;
   created_at: string;
 };
 
